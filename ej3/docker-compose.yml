@@ -1,0 +1,26 @@
+services:
+  mongo:
+    container_name: mi-mongo
+    image: mongo
+    volumes:
+      - mi-mongo-vol:/data/db
+    networks:
+      - mi-mongo-red
+    stdin_open : true
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    networks:
+      - mi-mongo-red
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mi-mongo
+    volumes:
+      - mi-mongo-vol:/data/db
+
+networks:
+  mi-mongo-red:
+
+volumes:
+  mi-mongo-vol:

@@ -1,0 +1,12 @@
+
+services:
+  mi-mysql:
+    
+  mi-phpmyadmin:
+
+volumes:
+  mi-mysql-vol:
+
+networks:
+  mi-mysql-red:
+
